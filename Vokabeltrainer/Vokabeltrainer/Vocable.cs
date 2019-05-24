@@ -9,8 +9,9 @@ namespace Vokabeltrainer
     class Vocable
     {
         private int id;
-        private string translation; //Wort übersetzng
-        private int origin; //original Wort
+        private string displayName;
+        private string translation; //Wort-Übersetzng
+        private string origin; //Original-Wort
         private int succeed; // 3 Stufen: 0, 1 und 2 (bei drei wieder bei 0 aber in einem Anderen Sektor)
 
         public int propSucceed
@@ -19,7 +20,7 @@ namespace Vokabeltrainer
             set { succeed = value; }
         }
 
-        public int propOrigin
+        public string propOrigin
         {
             get { return origin; }
             set { origin = value; }
@@ -37,5 +38,18 @@ namespace Vokabeltrainer
             set { translation = value; }
         }
 
+        public string propDisplayName
+        {
+            get { return displayName; }
+            set { displayName = value; }
+        }
+
+        public Vocable(string ow) {
+            //hier muss jetzt die API greifen
+
+            propOrigin = ow;
+            propTranslation = "translation";
+            propDisplayName = ow +" - " + "translation";
+        }
     }
 }
