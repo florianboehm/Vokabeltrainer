@@ -29,86 +29,83 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.wortÜbersetzenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lernenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testSimulationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.menuStrip1.SuspendLayout();
+            this.bUebersetzer = new System.Windows.Forms.Button();
+            this.bFach = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.wortÜbersetzenToolStripMenuItem,
-            this.lernenToolStripMenuItem,
-            this.testSimulationToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // wortÜbersetzenToolStripMenuItem
             // 
             this.wortÜbersetzenToolStripMenuItem.Name = "wortÜbersetzenToolStripMenuItem";
-            this.wortÜbersetzenToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
-            this.wortÜbersetzenToolStripMenuItem.Text = "Wort übersetzen";
-            this.wortÜbersetzenToolStripMenuItem.Click += new System.EventHandler(this.wortÜbersetzenToolStripMenuItem_Click);
+            this.wortÜbersetzenToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // lernenToolStripMenuItem
             // 
             this.lernenToolStripMenuItem.Name = "lernenToolStripMenuItem";
-            this.lernenToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.lernenToolStripMenuItem.Text = "Lernen";
+            this.lernenToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // testSimulationToolStripMenuItem
             // 
             this.testSimulationToolStripMenuItem.Name = "testSimulationToolStripMenuItem";
-            this.testSimulationToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.testSimulationToolStripMenuItem.Text = "Test-Simulation";
+            this.testSimulationToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // listView1
+            // bUebersetzer
             // 
-            this.listView1.Location = new System.Drawing.Point(311, 111);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.bUebersetzer.Location = new System.Drawing.Point(0, 0);
+            this.bUebersetzer.Name = "bUebersetzer";
+            this.bUebersetzer.Size = new System.Drawing.Size(212, 212);
+            this.bUebersetzer.TabIndex = 0;
+            this.bUebersetzer.Text = "Übersetzer";
+            this.bUebersetzer.UseVisualStyleBackColor = true;
+            this.bUebersetzer.Click += new System.EventHandler(this.bUebersetzer_Click);
+            // 
+            // bFach
+            // 
+            this.bFach.Location = new System.Drawing.Point(211, 0);
+            this.bFach.Name = "bFach";
+            this.bFach.Size = new System.Drawing.Size(212, 212);
+            this.bFach.TabIndex = 1;
+            this.bFach.Text = "Fach bearbeiten/hinzufügen";
+            this.bFach.UseVisualStyleBackColor = true;
+            this.bFach.Click += new System.EventHandler(this.bFach_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(423, 507);
+            this.Controls.Add(this.bFach);
+            this.Controls.Add(this.bUebersetzer);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem wortÜbersetzenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lernenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testSimulationToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Button bUebersetzer;
+        private System.Windows.Forms.Button bFach;
     }
 }
 

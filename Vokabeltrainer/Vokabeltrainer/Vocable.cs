@@ -12,12 +12,19 @@ namespace Vokabeltrainer
         private string displayName;
         private string translation; //Wort-Übersetzng
         private string origin; //Original-Wort
-        private int succeed; // 3 Stufen: 0, 1 und 2 (bei drei wieder bei 0 aber in einem Anderen Sektor)
+        private int succeed; // 3 Stufen: 0, 1 und 2
+        private Topic topic;
 
         public int propSucceed
         {
             get { return succeed; }
             set { succeed = value; }
+        }
+
+        public Topic propTopic
+        {
+            get { return topic; }
+            set { topic = value; }
         }
 
         public string propOrigin
@@ -44,12 +51,14 @@ namespace Vokabeltrainer
             set { displayName = value; }
         }
 
-        public Vocable(string ow) {
-            //hier muss jetzt die API greifen
+        public Vocable(string ow, string lk, Topic t) {
+
+            //@todo hier muss jetzt die API greifen sodass hier nicht mehr der test-begriff "translation" steht sondern die richtige Übersetzung
 
             propOrigin = ow;
             propTranslation = "translation";
             propDisplayName = ow +" - " + "translation";
-        }
+            propTopic = t;
+    }
     }
 }

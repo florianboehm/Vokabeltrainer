@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vokabeltrainer
 {
-    class Lesson
+    public class Subject
     {
         private string name;
         private string language;
@@ -23,5 +23,10 @@ namespace Vokabeltrainer
             set { name = value; }
         }
 
+        public Subject(string name, string language)
+        {
+            propName = name;
+            propLanguage = language;
+        }
     }
 }

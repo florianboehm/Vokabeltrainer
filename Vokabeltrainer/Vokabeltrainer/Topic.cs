@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Vokabeltrainer
 {
-    class Topic
+    public class Topic
     {
         
-        private Lesson lesson;
+        private Subject subject;
         private string name;
 
         public string propName
@@ -18,11 +18,16 @@ namespace Vokabeltrainer
             set { name = value; }
         }
 
-        public Lesson propLesson
+        public Subject propSubject
         {
-            get { return lesson; }
-            set { lesson = value; }
+            get { return subject; }
+            set { subject = value; }
         }
 
+        public Topic(string name, Subject s)
+        {
+            propSubject = s;
+            propName = name;
+        }
     }
 }
