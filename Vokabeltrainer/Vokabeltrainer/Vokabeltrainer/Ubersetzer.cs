@@ -74,7 +74,7 @@ namespace Vokabeltrainer
             //Eingabefeld Wort was es zu Übersetzen gilt
             TextBox tbEingabe = new TextBox();
             publicTbEingabe = tbEingabe;
-            tbEingabe.Top = 160;
+            tbEingabe.Top = 190;
             tbEingabe.Left = 20;
             tbEingabe.Width = 200;
             tbEingabe.Height = 20;
@@ -83,7 +83,7 @@ namespace Vokabeltrainer
             //Button zum Starten der Übersetzung
             Button bUebersetzen = new Button();
             bUebersetzen.Text = "Übersetzen";
-            bUebersetzen.Top = 190;
+            bUebersetzen.Top = 220;
             bUebersetzen.Left = 140;
             bUebersetzen.Width = 80;
             bUebersetzen.Height = 20;
@@ -93,7 +93,7 @@ namespace Vokabeltrainer
             //Listbox als Anzeige der Übersetzungen
             ListBox lbUebersetzungen = new ListBox();
             publicLbUebersetzung = lbUebersetzungen;
-            lbUebersetzungen.Top = 220;
+            lbUebersetzungen.Top = 250;
             lbUebersetzungen.Left = 20;
             lbUebersetzungen.Width = 200;
             lbUebersetzungen.Height = 200;
@@ -108,7 +108,7 @@ namespace Vokabeltrainer
             //Textbox für Log-Anzeige
             TextBox tbLog = new TextBox();
             publicTbLog = tbLog;
-            tbLog.Top = 420;
+            tbLog.Top = 450;
             tbLog.Left = 20;
             tbLog.Width = 200;
             tbLog.Height = 20;
@@ -119,7 +119,7 @@ namespace Vokabeltrainer
             Button bLoeschen = new Button();
             publicBLoeschen = bLoeschen;
             bLoeschen.Text = "Löschen";
-            bLoeschen.Top = 445;
+            bLoeschen.Top = 475;
             bLoeschen.Left = 20;
             bLoeschen.Width = 70;
             bLoeschen.Height = 20;
@@ -133,7 +133,7 @@ namespace Vokabeltrainer
             Button bSpeichern = new Button();
             publicBSpeichern = bSpeichern;
             bSpeichern.Text = "Speichern";
-            bSpeichern.Top = 445;
+            bSpeichern.Top = 475;
             bSpeichern.Left = 95;
             bSpeichern.Width = 70;
             bSpeichern.Height = 20;
@@ -170,13 +170,17 @@ namespace Vokabeltrainer
             }
             Vocable newVoc;
             //fülle ListBox
-            if (publicTopic == null)
+            if (publicTbTopic.Text != "")
             {
-                newVoc = new Vocable(eingabe, laenderKuerzel, new Topic(publicTbTopic.Text, publicFach));
+                newVoc = new Vocable(eingabe, new Topic(publicTbTopic.Text, publicFach));
+                Globals.topics.Add(new Topic(publicTbTopic.Text, publicFach));
+                Globals.vocs.Add(newVoc);
             }
             else
             {
-                newVoc = new Vocable(eingabe, laenderKuerzel, new Topic(publicTopic.propName,publicFach));
+                newVoc = new Vocable(eingabe, new Topic(publicTopic.propName,publicFach));
+                Globals.topics.Add(new Topic(publicTopic.propName, publicFach));
+                Globals.vocs.Add(newVoc);
             }
             publicLbUebersetzung.Items.Add(newVoc);
            
@@ -197,40 +201,60 @@ namespace Vokabeltrainer
             int topicCount = 0;
             for (int i = 0; i < Globals.vocs.Count; i++)
             {
-               if((((Topic)((Vocable)Globals.vocs[i]).propTopic).propSubject).propName == fach)
+               if(   (   (   (Topic)(   (Vocable)Globals.vocs[i]   ).propTopic   ).propSubject   ).propName == fach   )
                {
                     topicCount++;
                }
             }
 
-            if (topicCount != 0)
+            /*
+                 if (publicCbTopic != null)
+                 {
+                     this.Controls.Remove(publicCbTopic);
+                 }*/
+            // add DropDown-Menü Thema
+            if (publicCbTopic != null)
             {
-
-                if(publicTbNewTopic == null && publicLNewTopic == null )
-                {
-                    this.Controls.Remove(publicTbNewTopic);
-                    this.Controls.Remove(publicLNewTopic);
-                }
-                // add DropDown-Menü Thema
-                ComboBox cbTopic = new ComboBox();
-                cbTopic.DisplayMember = "propName";
-                publicCbTopic = cbTopic;
-                for (int i = 0; i < Globals.topics.Count; i++)
-                {
-                    if ((((Topic)Globals.topics[i]).propSubject).propName == fach)
-                    {
-                        cbTopic.Items.Add((Topic)Globals.topics[i]);
-                    }
-                }
-                cbTopic.Text = "- bitte Sprache auswählen - ";
-                cbTopic.Top = 130;
-                cbTopic.Left = 20;
-                cbTopic.Width = 200;
-                cbTopic.Height = 20;
-                cbTopic.DropDownStyle = ComboBoxStyle.DropDownList;
-                cbTopic.SelectedIndexChanged += onCbTopicSelectionChange;
-                this.Controls.Add(cbTopic);
+                this.Controls.Remove(publicCbTopic);
             }
+            ComboBox cbTopic = new ComboBox();
+            cbTopic.DisplayMember = "propName";
+            publicCbTopic = cbTopic;
+            for (int i = 0; i < Globals.topics.Count; i++)
+            {
+                if ((((Topic)Globals.topics[i]).propSubject).propName == fach)
+                {
+                    cbTopic.Items.Add((Topic)Globals.topics[i]);
+                }
+            }
+            cbTopic.Text = "- bitte Sprache auswählen - ";
+            cbTopic.Top = 130;
+            cbTopic.Left = 20;
+            cbTopic.Width = 200;
+            cbTopic.Height = 20;
+            cbTopic.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTopic.SelectedIndexChanged += onCbTopicSelectionChange;
+            this.Controls.Add(cbTopic);
+
+            Label l = new Label();
+            publicLNewTopic = l;
+            l.Text = "Neues Thema:";
+            l.Top = 160;
+            l.Left = 20;
+            l.Width = 80;
+            l.Height = 20;
+            l.TextAlign = ContentAlignment.MiddleCenter;
+            this.Controls.Add(l);
+            TextBox tb = new TextBox();
+            publicTbNewTopic = tb;
+            tb.Top = 160;
+            tb.Left = 100;
+            tb.Width = 120;
+            tb.Height = 20;
+            publicTbTopic = tb;
+            this.Controls.Add(tb);
+
+            /*}
             else
             {
                 if (publicCbTopic != null)
@@ -254,9 +278,9 @@ namespace Vokabeltrainer
                 tb.Height = 20;
                 publicTbTopic = tb;
                 this.Controls.Add(tb);
-            }
+            }*/
 
-            
+
         }
 
         private void onCbTopicSelectionChange(object sender, EventArgs e)

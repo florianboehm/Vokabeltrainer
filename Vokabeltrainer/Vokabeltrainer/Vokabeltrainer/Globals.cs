@@ -13,6 +13,7 @@ namespace Vokabeltrainer
         public static ArrayList subjects = new ArrayList();
         public static ArrayList topics = new ArrayList();
 
+        /* hardcoding weil wir noch keine Datenbank haben: */
         public static void loadSubjects()
         {
             subjects.Add(new Subject("Englisch","en"));
@@ -31,10 +32,10 @@ namespace Vokabeltrainer
 
         public static void loadVocs()
         {
-            vocs.Add(new Topic("sights in London", new Subject("Englisch", "en")));
-            vocs.Add(new Topic("Atracciones en Madrid", new Subject("Spanisch", "es")));
-            vocs.Add(new Topic("Attractions à Paris", new Subject("Französisch", "fr")));
-            vocs.Add(new Topic("Attrazioni a Roma", new Subject("Italenisch", "it")));
+            vocs.Add(new Vocable("Big Ben", new Topic("sights in London", new Subject("Englisch", "en"))));
+            vocs.Add(new Vocable("Valle de los Caídos", new Topic("Atracciones en Madrid", new Subject("Spanisch", "es"))));
+            vocs.Add(new Vocable("La Tour Eiffel", new Topic("Attractions à Paris", new Subject("Französisch", "fr"))));
+            vocs.Add(new Vocable("Roma Capitale", new Topic("Attrazioni a Roma", new Subject("Italenisch", "it"))));
         }
     }
 }

@@ -51,7 +51,7 @@ namespace Vokabeltrainer
             set { displayName = value; }
         }
 
-        public Vocable(string ow, string lk, Topic t) {
+        public Vocable(string ow, Topic t) {
 
             //@todo hier muss jetzt die API greifen sodass hier nicht mehr der test-begriff "translation" steht sondern die richtige Übersetzung
 

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Vokabeltrainer
 {
-    public partial class Lernen : Form
+    public partial class Fach : Form
     {
-        public Lernen()
+        public Fach()
         {
             InitializeComponent();
+        }
+
+        private void Fach_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

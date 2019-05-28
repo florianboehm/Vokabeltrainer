@@ -36,6 +36,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.bUebersetzer = new System.Windows.Forms.Button();
             this.bFach = new System.Windows.Forms.Button();
+            this.bLernen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,11 +84,22 @@
             this.bFach.UseVisualStyleBackColor = true;
             this.bFach.Click += new System.EventHandler(this.bFach_Click);
             // 
+            // bLernen
+            // 
+            this.bLernen.Location = new System.Drawing.Point(0, 212);
+            this.bLernen.Name = "bLernen";
+            this.bLernen.Size = new System.Drawing.Size(212, 212);
+            this.bLernen.TabIndex = 2;
+            this.bLernen.Text = "Lernen";
+            this.bLernen.UseVisualStyleBackColor = true;
+            this.bLernen.Click += new System.EventHandler(this.bLernen_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 507);
+            this.Controls.Add(this.bLernen);
             this.Controls.Add(this.bFach);
             this.Controls.Add(this.bUebersetzer);
             this.Name = "Form1";
@@ -106,6 +118,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Button bUebersetzer;
         private System.Windows.Forms.Button bFach;
+        private System.Windows.Forms.Button bLernen;
     }
 }
 

@@ -36,5 +36,11 @@ namespace Vokabeltrainer
             Globals.loadTopics();
             Globals.loadVocs();
         }
+
+        private void bLernen_Click(object sender, EventArgs e)
+        {
+            Lernen l = new Lernen();
+            l.Show();
+        }
     }
 }
